@@ -1,4 +1,4 @@
-from functions.py import .
+from functions.py import *
 import pandas as pd
 
 artist = input('Artiste dont on veut enrichir les données de discographie : ')
