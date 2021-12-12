@@ -1,2 +1,4 @@
 lyricsgenius
 pandas
+nltk
+re
