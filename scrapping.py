@@ -8,7 +8,7 @@ genius = Genius(token,timeout=45,retries=3)
 
 #liste des artistes à scrapper
 #artiste + artist_id permettant d'identifier l'artiste sur genius
-list_artist_ids = [[72,'Kanye West']]
+list_artist_ids = [[130,'Drake'],[15740,'Lana Del Rey'],[15740,'Adele'],[500,'Bruno Mars']]
 
 def lyrics_for_df(id_):
     return genius.lyrics(song_id=id_)
@@ -28,27 +28,30 @@ for artist_id, artist_name in list_artist_ids:
 
     df_artist = pd.DataFrame()
 
-    for album_id in albums_artist['id']:
-        tracklist = pd.DataFrame([i['song'] for i in genius.album_tracks(album_id)['tracks']])
+    try : 
+        for album_id in albums_artist['id']:
+            tracklist = pd.DataFrame([i['song'] for i in genius.album_tracks(album_id)['tracks']])
+            
+            v = pd.DataFrame(albums_artist.loc[albums_artist['id'] == album_id])
+            print(v['name'].values)
+            data_annexes = [v['name'].values[0], v['id'].values[0], v['release_date_components'].values[0],
+                            v['Artiste'].values[0]]
+            annexe = pd.DataFrame([data_annexes for i in range(len(genius.album_tracks(album_id)['tracks']))],
+                                  columns=["Album", "album_id", "Date de sortie", "Artiste"])
 
-        v = pd.DataFrame(albums_artist.loc[albums_artist['id'] == album_id])
-        print(v['name'].values)
-        data_annexes = [v['name'].values[0], v['id'].values[0], v['release_date_components'].values[0],
-                        v['Artiste'].values[0]]
-        annexe = pd.DataFrame([data_annexes for i in range(len(genius.album_tracks(album_id)['tracks']))],
-                              columns=["Album", "album_id", "Date de sortie", "Artiste"])
+            tracklist = pd.concat([tracklist['title'], tracklist['id'], tracklist['artist_names'], annexe], axis=1)
+            tracklist = tracklist.rename(columns={'title': 'Titre', 'id': 'song_id', 'artist_names': 'Artiste (features)'})
 
-        tracklist = pd.concat([tracklist['title'], tracklist['id'], tracklist['artist_names'], annexe], axis=1)
-        tracklist = tracklist.rename(columns={'title': 'Titre', 'id': 'song_id', 'artist_names': 'Artiste (features)'})
+            tracklist['Lyrics'] = tracklist['song_id'].apply(lyrics_for_df)
+        
+            df_artist = pd.concat([df_artist, tracklist], axis=0)
 
-        tracklist['Lyrics'] = tracklist['song_id'].apply(lyrics_for_df)
-
-        df_artist = pd.concat([df_artist, tracklist], axis=0)
-
-        print(df_artist)
-
-    df_artist.to_csv(f'scrapped_data/discography_{artist_name}')
+            print(df_artist)
+    
+    except : 
+        print('error')
+    df_artist.to_csv(f'discography_{artist_name}')
 
     df_total = pd.concat([df_total, df_artist], axis=0)
 
-df_total.to_csv('scrapped_data/fulldatabase')
+df_total.to_csv('total_data.csv')
