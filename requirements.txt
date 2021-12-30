@@ -1,3 +1,5 @@
 lyricsgenius
 pandas
 nltk
+sklearn
+matplotlib
