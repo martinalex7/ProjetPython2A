@@ -12,7 +12,7 @@ In order to gather a consequent and relevant database, we scrapped the website h
 :alarm: By following this pipeline, you'll be able to select your artists of interest, extract their discography, and 
 test the classification models we worked on.
 
-NB : this project is designed for english songs only. 
+:pushpin: NB : this project is designed for english songs only. 
 
 ## Install requirements: 
 In your terminal/command-line go to the project folder and execute the command below:
@@ -22,9 +22,11 @@ pip install -r requirements.txt
 
 ## Step 1 : Choose the artists
 
+```
 Please execute/run the ... file.
+```
 
-You'll be asked to enter the full name of your artist of interest. (it is important for the name to not include any mistakes).
+You'll be asked to enter the full name of your artist of interest. ( :warning: it is important for the name to not include any mistakes).
 
 Great ! The scrapping is now over (your datas are now stored in scrapped_data). You've collected every lyrics ever written by your artist (according to genius).
 
@@ -33,7 +35,9 @@ You can now repeat this first step with every artist of your choosing.
 
 ## Step 2 : Improve the database 
 
+```
 Please execute/run the ... file. 
+```
 
 This step is mandatory as it will take care of cleaning your data, 
 
@@ -43,7 +47,9 @@ This step is mandatory as it will take care of cleaning your data,
 In order to test our different methods, we first need you to create the TF-IDF matrix for your song corpus.
 (photo definition maths TF-IDF)
 
+```
 Please execute/run the ... file.
+```
 
 You'll be asked to type the names of the two artist. Please keep the exact syntax you used in Step 1 when scrapping the data.
 
@@ -53,14 +59,18 @@ This step is now over, you can now choose on of our 3 methods of classification.
 
 You can now choose between the Decision Tree Method, the Random Forest Method and ... 
 
+```
 Please execute/run the ... or ... or ... file in the 2ArtistClassMethods folder.
+```
 
 
 ## Step 5 : Preprocessing the N Artists Classification Methods
 
 In order to test our different methods, we first need you to create the TF-IDF matrix for your song corpus.
 
+```
 Please execute/run the ... file.
+```
 
 This time, the TF-IDF matrix will be created for every artist you've scrapped.
 
@@ -68,7 +78,9 @@ This time, the TF-IDF matrix will be created for every artist you've scrapped.
 
 You can now choose between the Decision Tree Method, the Random Forest Method and ... 
 
+```
 Please execute/run the ... or ... or ... file in the NArtistClassMethods folder.
+```
 
 
 ## Annexe : Methods comparison 
