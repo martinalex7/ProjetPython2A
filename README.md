@@ -5,8 +5,8 @@ During this Natural Language Processing project we decided to work on classifica
 We aimed to create a ML/DL algorithm which could recognize the artist who wrote a song given the lyrics of a particular song.
 
 In order to gather a consequent and relevant database, we scrapped the website https://genius.com/. 
-(ajout image logo genius)
-![alt text](https://upload.wikimedia.org/wikipedia/commons/5/51/Genius-logo.png = 20x80)
+
+![alt text](https://upload.wikimedia.org/wikipedia/commons/5/51/Genius-logo.png | width = 80)
 
 
 :alarm: By following this pipeline, you'll be able to select your artists of interest, extract their discography, and 
