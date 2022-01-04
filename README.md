@@ -9,10 +9,10 @@ In order to gather a consequent and relevant database, we scrapped the website h
 ![](https://upload.wikimedia.org/wikipedia/commons/3/3d/Genius_Logo.png)
 
 
-:alarm: By following this pipeline, you'll be able to select your artists of interest, extract their discography, and 
+:pushpin: By following this pipeline, you'll be able to select your artists of interest, extract their discography, and 
 test the classification models we worked on.
 
-:pushpin: NB : this project is designed for english songs only. 
+NB : this project is designed for english songs only. 
 
 ## Install requirements: 
 In your terminal/command-line go to the project folder and execute the command below:
