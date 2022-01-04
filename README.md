@@ -6,7 +6,7 @@ We aimed to create a ML/DL algorithm which could recognize the artist who wrote 
 
 In order to gather a consequent and relevant database, we scrapped the website https://genius.com/. 
 
-![alt text](https://upload.wikimedia.org/wikipedia/commons/5/51/Genius-logo.png){:height="700px" width="400px"}
+![](https://upload.wikimedia.org/wikipedia/commons/3/3d/Genius_Logo.png)
 
 
 :alarm: By following this pipeline, you'll be able to select your artists of interest, extract their discography, and 
