@@ -3,3 +3,4 @@ pandas
 nltk
 sklearn
 matplotlib
+numpy
