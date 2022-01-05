@@ -71,6 +71,6 @@ df_artist['Clean Tokenized Lyrics'] = df_artist['Clean Lyrics'].apply(tokenized_
 df_artist['Word Frequency in song'] = df_artist['Clean Tokenized Lyrics'].apply(dict_freq_words)
 df_artist['Date de sortie'] = df_artist['Date de sortie'].apply(date_sortie)
 
-print(df_artist.head())
+#print(df_artist.head())
 
 df_artist.to_csv(f'artist_data/discography_{artist_name}')
