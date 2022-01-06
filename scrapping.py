@@ -29,7 +29,7 @@ df_artist = pd.DataFrame()
 
 compteur = 1
 
-for album_id in albums_artist['id']:
+for album_id in albums_artist['id'][:1]:
     try :
         tracklist = pd.DataFrame([i['song'] for i in genius.album_tracks(album_id)['tracks']])
 
@@ -41,10 +41,10 @@ for album_id in albums_artist['id']:
         data_annexes = [v['name'].values[0], v['id'].values[0], v['release_date_components'].values[0],
                         v['Artiste'].values[0]]
         annexe = pd.DataFrame([data_annexes for i in range(len(genius.album_tracks(album_id)['tracks']))],
-                              columns=["Album", "album_id", "Date de sortie", "Artiste"])
+                              columns=["Album", "album_id", "Release Date", "Artist"])
 
         tracklist = pd.concat([tracklist['title'], tracklist['id'], tracklist['artist_names'], annexe], axis=1)
-        tracklist = tracklist.rename(columns={'title': 'Titre', 'id': 'song_id', 'artist_names': 'Artiste (features)'})
+        tracklist = tracklist.rename(columns={'title': 'Title', 'id': 'song_id', 'artist_names': 'Featuring'})
 
         tracklist['Lyrics'] = tracklist['song_id'].apply(lyrics_for_df)
 
@@ -69,7 +69,9 @@ df_artist['Outro'] = df_artist['Lyrics'].apply(outro_detection)
 df_artist['Clean Lyrics'] = df_artist['Lyrics'].apply(lyrics_cleaning)
 df_artist['Clean Tokenized Lyrics'] = df_artist['Clean Lyrics'].apply(tokenized_lyrics)
 df_artist['Word Frequency in song'] = df_artist['Clean Tokenized Lyrics'].apply(dict_freq_words)
-df_artist['Date de sortie'] = df_artist['Date de sortie'].apply(date_sortie)
+df_artist['Release Date'] = df_artist['Release Date'].apply(date_sortie)
+df_artist['Song Length'] = df_artist['Clean Tokenized Lyrics'].apply(len_song)
+df_artist['Featuring'] = df_artist[['Featuring', 'Artist']].apply(featuring, axis=1)
 
 #print(df_artist.head())
 

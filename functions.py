@@ -119,14 +119,19 @@ def smallest_lemma(word1,word2):
         return word1
 
 def date_sortie(date):
-    try :
-        new_date = '/'.join([word_tokenize(date)[4],
-                             word_tokenize(date)[9],
-                             word_tokenize(date)[14]])
-        return new_date
-    except :
-        return 'NaN'
+    return date['year']
 
 
 def dict_freq_words(tok_lyrics):
     return dict(sorted(collections.Counter(tok_lyrics).items(), key = lambda item : item[1], reverse = True))
+
+def featuring(vec):
+    col1,col2 = vec[0],vec[1]
+    if col1 == col2:
+        return 0
+    else:
+        return 1
+
+def len_song(tok_lyrics):
+    return len(tok_lyrics)
+
