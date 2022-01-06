@@ -39,7 +39,7 @@ You'll be asked to enter the full name of your artist of interest. ( :warning: i
 Great ! The scrapping is now over. Your data is stored in the artist_data folder. 
 You've supposedly collected every lyrics ever written by your artist (according to genius).
 
-:repea: You can now repeat this first step with every artist of your choosing.
+:repeat: You can now repeat this first step with every artist of your choosing.
 
 ## Classification Methods
 
@@ -95,7 +95,7 @@ By following carefully the instructions, you should now see the accuracy results
 
 
 
-## Annexe :  
+## Annexes :  
 
 ### Methods comparison
 
