@@ -1,6 +1,5 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
-import numpy as np
 import os
 
 list_artists = os.listdir('../artist_data/')

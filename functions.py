@@ -34,7 +34,6 @@ def nbr_verses(lyrics):
     regex_indications = re.compile('\[(.*?)\]')
     details = [i[0] for i in regex_indications.finditer(str(lyrics))]
     for element in details:
-        #print(element)
         if 'Verse' in element:
             compteur +=1
     return compteur
@@ -44,7 +43,6 @@ def nbr_chorus(lyrics):
     regex_indications = re.compile('\[(.*?)\]')
     details = [i[0] for i in regex_indications.finditer(str(lyrics))]
     for element in details:
-        #print(element)
         if 'Chorus' in element:
             if not 'Pre-Chorus' in element:
                 compteur +=1
@@ -57,7 +55,6 @@ def nbr_parts(lyrics):
     regex_indications = re.compile('\[(.*?)\]')
     details = [i[0] for i in regex_indications.finditer(str(lyrics))]
     for element in details:
-        #print(element)
         if 'Part' in element:
             compteur +=1
     return compteur
@@ -67,7 +64,6 @@ def nbr_interlude(lyrics):
     regex_indications = re.compile('\[(.*?)\]')
     details = [i[0] for i in regex_indications.finditer(str(lyrics))]
     for element in details:
-        #print(element)
         if 'Interlude' in element:
             compteur +=1
     return compteur
@@ -77,7 +73,6 @@ def nbr_bridge(lyrics):
     regex_indications = re.compile('\[(.*?)\]')
     details = [i[0] for i in regex_indications.finditer(str(lyrics))]
     for element in details:
-        #print(element)
         if 'Bridge' in element:
             compteur +=1
     return compteur
@@ -87,7 +82,6 @@ def nbr_pre_chorus(lyrics):
     regex_indications = re.compile('\[(.*?)\]')
     details = [i[0] for i in regex_indications.finditer(str(lyrics))]
     for element in details:
-        #print(element)
         if 'Pre-Chorus' in element:
             compteur +=1
     return compteur
@@ -108,7 +102,6 @@ def lyrics_cleaning(lyrics):
     return str(lyrics)
 
 def tokenized_lyrics(lyrics):
-    # à voir comment améliorer en supprimant les stopwords + ponctuation
     return word_tokenize(str(lyrics))
 
 
@@ -118,7 +111,7 @@ def smallest_lemma(word1,word2):
     else:
         return word1
 
-def date_sortie(date):
+def release_date(date):
     return date['year']
 
 

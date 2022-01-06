@@ -1,6 +1,5 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
-import numpy as np
 
 artist1 = input('Name of the first artist: ')
 artist2 = input('Name of the second artist: ')
@@ -13,7 +12,6 @@ df_artist2 = df_artist2[df_artist2['Clean Lyrics'].notna()]
 
 # Apply TF-IDF to the data
 vectorizer = TfidfVectorizer()
-print(list(df_artist1['Clean Lyrics'])+list(df_artist2['Clean Lyrics']))
 vectors = vectorizer.fit_transform(list(df_artist1['Clean Lyrics'])+list(df_artist2['Clean Lyrics']))
 feature_names = vectorizer.get_feature_names()
 dense = vectors.todense()

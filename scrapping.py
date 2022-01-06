@@ -2,7 +2,7 @@ from lyricsgenius import Genius
 import pandas as pd
 from functions import *
 
-#token permettant de scrapper genius
+#token allowing to scrap genius
 token = 'sxXw2RwH_IyZ_AYE4gvp8Myo7sT0z8B-wEErToK43kDfEXk7pLBf0X7nfauTmh0g'
 
 genius = Genius(token,timeout=45,retries=3)
@@ -16,7 +16,7 @@ artist_name = input("Artist name : ")
 artist_id = genius.search_artists(artist_name)['sections'][0]['hits'][0]['result']['id']
 
 
-# création d'un DF contenant les infos de l'ensemble des albums de l'artiste
+# creation of a DataFrame containing data on every song of the album
 albums_artist = pd.concat([pd.DataFrame.from_dict(genius.artist_albums(artist_id=artist_id)['albums'])['name'],
                            pd.DataFrame.from_dict(genius.artist_albums(artist_id=artist_id)['albums'])['id'],
                            pd.DataFrame.from_dict(genius.artist_albums(artist_id=artist_id)['albums'])
@@ -68,7 +68,7 @@ df_artist['Outro'] = df_artist['Lyrics'].apply(outro_detection)
 df_artist['Clean Lyrics'] = df_artist['Lyrics'].apply(lyrics_cleaning)
 df_artist['Clean Tokenized Lyrics'] = df_artist['Clean Lyrics'].apply(tokenized_lyrics)
 df_artist['Word Frequency in song'] = df_artist['Clean Tokenized Lyrics'].apply(dict_freq_words)
-df_artist['Release Date'] = df_artist['Release Date'].apply(date_sortie)
+df_artist['Release Date'] = df_artist['Release Date'].apply(release_date)
 df_artist['Song Length'] = df_artist['Clean Tokenized Lyrics'].apply(len_song)
 df_artist['Featuring'] = df_artist[['Featuring', 'Artist']].apply(featuring, axis=1)
 
