@@ -29,7 +29,7 @@ df_artist = pd.DataFrame()
 
 compteur = 1
 
-for album_id in albums_artist['id'][:1]:
+for album_id in albums_artist['id']:
     try :
         tracklist = pd.DataFrame([i['song'] for i in genius.album_tracks(album_id)['tracks']])
 
@@ -55,7 +55,6 @@ for album_id in albums_artist['id'][:1]:
         print('Impossible to scrap this album')
 
 df_artist = df_artist.dropna()
-#df_artist.to_csv(f'artist_data/discography_{artist_name}')
 
 
 df_artist['Intro'] = df_artist['Lyrics'].apply(intro_detection)
@@ -72,7 +71,5 @@ df_artist['Word Frequency in song'] = df_artist['Clean Tokenized Lyrics'].apply(
 df_artist['Release Date'] = df_artist['Release Date'].apply(date_sortie)
 df_artist['Song Length'] = df_artist['Clean Tokenized Lyrics'].apply(len_song)
 df_artist['Featuring'] = df_artist[['Featuring', 'Artist']].apply(featuring, axis=1)
-
-#print(df_artist.head())
 
 df_artist.to_csv(f'artist_data/discography_{artist_name}')
