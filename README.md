@@ -1,6 +1,6 @@
 # Python for Data Scientist Project 2021-2022 : 
 *"My life is all I have. 
-My rymes, my pen, my pad"* Morray, JCole, 21 Savage - My Life
+My rhymes, my pen, my pad"* Morray, JCole, 21 Savage - My Life
 
 During this Natural Language Processing project we decided to work on classification algorithms applied to song lyrics. 
 We aimed to create a ML/DL algorithm which could recognize which artist wrote a given song thanks to the song's lyrics only.
