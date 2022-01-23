@@ -13,7 +13,7 @@ In order to gather a consequent and relevant database, we scrapped the website h
 ![](https://upload.wikimedia.org/wikipedia/commons/3/3d/Genius_Logo.png)
 
 
-:pushpin: This project can be seen though these two following versions:
+:pushpin: This project can be seen through these two following versions:
 
 - The **"rapport" version** of the project which is the deliverable for the Python for Data Scientist project. It is structured in 3 numerated notebook located in the rapport folder.
 
