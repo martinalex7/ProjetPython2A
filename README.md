@@ -28,7 +28,7 @@ In your terminal/command-line go to the project folder and execute the command b
 pip install -r requirements.txt 
 ```
 
-## Step 1 : Chose your artists
+## Step 1 : Choose your artists
 
 Please run the following command in your terminal and follow carefully the instructions.
 ```
