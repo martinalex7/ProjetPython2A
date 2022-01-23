@@ -2,6 +2,11 @@ from lyricsgenius import Genius
 import pandas as pd
 from functions import *
 
+import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+
 #token allowing to scrap genius
 token = 'sxXw2RwH_IyZ_AYE4gvp8Myo7sT0z8B-wEErToK43kDfEXk7pLBf0X7nfauTmh0g'
 
